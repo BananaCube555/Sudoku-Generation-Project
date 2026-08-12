@@ -11,31 +11,32 @@ with open("Sodoku_Data\Easy.json","r" ) as file:
 #     def __init__(self, data):
 #         self.data = data
 
+def check_col(data):
+     for col in range(9):
+          cash = []
+          for row in range(9):
+               cash.append(data[row][col])
+          if len(cash) != len(set(cash)):
+               print("Wrong")
+               return False
+            
+               
+        
 
-def CheckRow(data):
-    for r in range(9):
-        row = []
 
-        for c in range(9):
-            row.append(data[r][c])
+def check_row(data):
 
-        if len(row) != len(set(row)):
-            print("Wrong")
-            return False
+    for row in range(9):
+        cash = []
+        for col in range(9):
+            cash.append(data[row][col])
 
+        if len(cash) != len(set(cash)):
+                print("Wrong")
+                return False
+
+    
     return True
 
-def CheckRow(data):
-    cash = []
-
-    for c in range(9):
-        for r in range(9):
-            cash.append(data[c][r])
-
-    set_cash = set(cash)
-
-    if len(cash) != len(set_cash):
-        cash.append("Wrong")
-
-CheckRow(EasySodukuData)   
-
+check_row(EasySodukuData[1]["board"])
+check_col(EasySodukuData[1]["board"])
